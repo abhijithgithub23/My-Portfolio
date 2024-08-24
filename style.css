@@ -1,0 +1,749 @@
+/* GENERAL */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    cursor: url('assets/mac20.png'), auto;
+}
+
+.context-menu {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    width: 150px;
+    background-color: white;
+    /* Solid background color */
+    border: 1px solid rgba(220, 220, 220, 0.6);
+    /* Slightly transparent border */
+    backdrop-filter: blur(50px);
+    /* Blur effect for glassy look */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 7px;
+    /* Rounded corners */
+}
+
+.context-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.context-menu li {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(220, 220, 220, 0.6);
+    /* Slightly transparent border */
+}
+
+.context-menu li:hover {
+    background-color: rgba(224, 224, 224, 0.5);
+    /* Slightly transparent hover effect */
+}
+
+.context-menu li:last-child {
+    border-bottom: none;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.unlock-animation {
+    opacity: 0;
+    transform: translateX(-40px);
+    /* Start closer to the final position */
+    animation: slideIn 1s ease-in-out forwards;
+    /* Extended duration for smoothness */
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
+        /* Start closer to the final position */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+p {
+    color: rgb(85, 85, 85);
+}
+
+.navbar {
+    position: relative;
+    /* Ensures child elements are positioned relative to the navbar */
+    display: flex;
+    /* Adjust based on your layout */
+    align-items: center;
+    /* Center items vertically */
+}
+
+.nav-item {
+    margin-left: 20px;
+    /* Adjust spacing between navigation items */
+    /* Add additional styling as needed */
+}
+
+
+/* TRANSITION */
+
+a,
+.btn {
+    transition: all 300ms ease;
+}
+
+
+/* DESKTOP NAV */
+
+nav,
+.nav-links {
+    display: flex;
+}
+
+nav {
+    justify-content: space-around;
+    align-items: center;
+    height: 17vh;
+    width: 100%;
+}
+
+.nav-links {
+    gap: 2rem;
+    list-style: none;
+    font-size: 1.5rem;
+}
+
+a {
+    position: relative;
+    color: black;
+    text-decoration: none;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    /* Adjust this to position the underline closer or further from the text */
+    width: 100%;
+    height: 2px;
+    /* Adjust the thickness of the underline */
+    background-color: rgb(181, 181, 181);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+a:hover {
+    color: gray;
+    /* Change text color on hover */
+}
+
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.logo {
+    font-size: 2rem;
+}
+
+.logo:hover {
+    cursor: default;
+}
+
+
+/* HAMBURGER MENU ----------------------------------------------------------------------------------------------*/
+
+#hamburger-nav {
+    display: none;
+}
+
+.hamburger-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.hamburger-icon span {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
+    width: fit-content;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+    border-radius: 1rem;
+}
+
+.menu-links a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: black;
+    text-decoration: none;
+    transition: none;
+    /* Remove any transition effects */
+}
+
+.menu-links a:hover {
+    background-color: transparent;
+    /* Ensure no background color on hover */
+    color: black;
+    /* Ensure text color remains unchanged on hover */
+    text-decoration: none;
+    /* Ensure no underline on hover */
+}
+
+.menu-links li {
+    list-style: none;
+}
+
+.menu-links.open {
+    max-height: 400px;
+    /* Increased height */
+}
+
+.hamburger-icon.open span:first-child {
+    transform: rotate(45deg) translate(10px, 5px);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-icon.open span:last-child {
+    transform: rotate(-45deg) translate(10px, -5px);
+}
+
+
+/* Corrected redundant styles */
+
+.hamburger-icon span {
+    transform: none;
+    opacity: 1;
+}
+
+
+/* Corrected redundant styles */
+
+.hamburger-icon span {
+    transform: none;
+    opacity: 1;
+}
+
+
+/* SECTIONS */
+
+section {
+    padding-top: 4vh;
+    height: 96vh;
+    margin: 0 10rem;
+    box-sizing: border-box;
+    min-height: fit-content;
+}
+
+.section-container {
+    display: flex;
+}
+
+
+/* PROFILE SECTION --------------------------------------------------------------------------------------------------------------------------*/
+
+#profile {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    height: 83vh;
+    filter: grayscale(100%);
+    background-image: url('./assets/bgpic.jpg');
+    /* Path to your background image */
+    background-size: cover;
+    /* Ensures the background image covers the entire section */
+    background-position: center;
+    /* Centers the background image */
+    background-repeat: no-repeat;
+    /* Prevents the background image from repeating */
+    padding: 50px 0;
+    /* Adds some padding to the top and bottom */
+    color: white;
+    /* Ensures the text color contrasts well with the background */
+}
+
+.section__pic-container {
+    display: flex;
+    height: 400px;
+    width: 400px;
+    margin: auto 0;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5))
+}
+
+.section__text {
+    align-self: center;
+    text-align: center;
+    color: rgb(50, 50, 50);
+}
+
+.section__text p {
+    font-weight: 600;
+}
+
+.section__text__p1 {
+    text-align: center;
+}
+
+.section__text__p11 {
+    text-align: left;
+}
+
+.section__text__p22 {
+    text-align: right;
+}
+
+.section__text__p2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.title11 {
+    font-size: 3rem;
+    text-align: left;
+}
+
+.title22 {
+    font-size: 3rem;
+    text-align: right;
+}
+
+#socials-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+
+/* ICONS */
+
+.icon1 {
+    cursor: pointer;
+    height: 3rem;
+    width: 3rem;
+    /* Make sure the icon is square */
+    transition: transform 0.3s ease;
+    /* Smooth transition for the scaling effect */
+}
+
+.icon1:hover {
+    transform: scale(1.2);
+    /* Increase the size by 20% */
+}
+
+.icon {
+    cursor: pointer;
+    height: 2rem;
+}
+
+.icond {
+    cursor: pointer;
+    height: 2rem;
+}
+
+.iconup {
+    cursor: pointer;
+    height: 2rem;
+}
+
+
+/* BUTTONS ------------------------------------------------------------------------------------------------------*/
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn {
+    font-weight: 600;
+    transition: all 300ms ease;
+    padding: 1rem;
+    width: 8rem;
+    border-radius: 2rem;
+}
+
+.btn-color-2 {
+    background: rgba(255, 255, 255, 0.2);
+    /* Semi-transparent background */
+    border: rgb(53, 53, 53) 0.1rem solid;
+    backdrop-filter: blur(10px);
+    /* Apply a blur effect */
+    -webkit-backdrop-filter: blur(10px);
+    /* For Safari support */
+    color: rgb(53, 53, 53);
+    /* Text color to match the border */
+    transition: all 300ms ease;
+}
+
+.btn-color-1 {
+    border: rgb(53, 53, 53) 0.1rem solid;
+}
+
+.btn-color-2:hover {
+    background: rgba(255, 255, 255, 0.3);
+    /* Slightly more opaque on hover */
+    border: rgb(255, 255, 255) 0.1rem solid;
+    color: white;
+    /* Change text color on hover */
+    cursor: pointer;
+}
+
+.btn-color-1:hover {
+    cursor: pointer;
+}
+
+.btn-color-1,
+.btn-color-2:hover {
+    background: rgb(53, 53, 53);
+    color: white;
+}
+
+.btn-color-1:hover {
+    background: rgb(0, 0, 0);
+}
+
+.btn-color-2 {
+    background: none;
+}
+
+.btn-color-2:hover {
+    border: rgb(255, 255, 255) 0.1rem solid;
+}
+
+.btn-container {
+    gap: 1rem;
+}
+
+
+/* ABOUT SECTION -----------------------------------------------------------------------------------------------------------------*/
+
+#about {
+    position: relative;
+    background-image: url('/assets/bg3.jpg');
+    background-size: 70% 100%;
+    background-position: right;
+    background-repeat: no-repeat;
+    height: 100vh;
+    border-bottom-right-radius: 40px;
+    /* Adjust the radius as needed */
+}
+
+.about-containers {
+    gap: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.about-details-container {
+    justify-content: center;
+    flex-direction: column;
+}
+
+.about-containers,
+.about-details-container {
+    display: flex;
+}
+
+.about-pic {
+    border-radius: 2rem;
+    filter: grayscale(99%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.about-pic:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    /* Zoom in effect */
+}
+
+.arrow {
+    position: absolute;
+    right: -5rem;
+    bottom: 2.5rem;
+}
+
+.arrowup {
+    position: absolute;
+    right: -5rem;
+    top: 2.5rem;
+}
+
+.details-container {
+    padding: 1.5rem;
+    flex: 1;
+    /* Transparent container */
+    background: rgba(255, 255, 255, 0.5);
+    /* Adjust alpha for desired transparency */
+    /* Blur effect */
+    backdrop-filter: blur(2px);
+    /* Adjust blur amount as needed */
+    border-radius: 2rem;
+    border: rgb(53, 53, 53) 0.1rem solid;
+    border-color: rgb(163, 163, 163);
+    text-align: center;
+}
+
+.section-container {
+    gap: 4rem;
+    height: 80%;
+}
+
+.section__pic-container {
+    height: 400px;
+    width: 400px;
+    margin: auto 0;
+}
+
+
+/* EXPERIENCE SECTION ------------------------------------------------------------------------------------------------------------------*/
+
+#experience {
+    position: relative;
+    background-image: url('/assets/bg4.jpg');
+    /* Replace with your actual image path */
+    background-size: 50% 100%;
+    /* Scale the image to twice its width and full height */
+    background-position: left;
+    /* Position the image on the right two-thirds of the screen */
+    background-repeat: no-repeat;
+    /* Prevent the image from repeating */
+    border-bottom-left-radius: 40px;
+    border-top-left-radius: 40px;
+    height: 100vh;
+}
+
+.experience-sub-title {
+    color: rgb(85, 85, 85);
+    font-weight: 600;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.experience-details-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.article-container {
+    display: flex;
+    text-align: initial;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2.5rem;
+    justify-content: last baseline;
+}
+
+article {
+    display: flex;
+    width: 10rem;
+    justify-content: last baseline;
+    gap: 0.5rem;
+}
+
+article .icon {
+    cursor: default;
+}
+
+
+/* PROJECTS SECTION------------------------------------------------------------------------------------------------ */
+
+#projects {
+    position: relative;
+    background-image: url('/assets/bg5.jpg');
+    /* Replace with your actual image path */
+    background-size: 50% 100%;
+    /* Scale the image to twice its width and full height */
+    background-position: right;
+    /* Position the image on the right two-thirds of the screen */
+    background-repeat: no-repeat;
+    /* Prevent the image from repeating */
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    height: 100vh;
+}
+
+.color-container {
+    border-color: rgb(163, 163, 163);
+    /* Transparent container */
+    background: rgba(255, 255, 255, 0.5);
+    /* Adjust alpha for desired transparency */
+    /* Blur effect */
+    backdrop-filter: blur(2px);
+    /* Adjust blur amount as needed */
+}
+
+.project-img {
+    border-radius: 2rem;
+    width: 100%;
+    height: 90%;
+}
+
+.project-title {
+    margin: 1rem;
+    color: black;
+}
+
+.project-btn {
+    color: black;
+    border-color: rgb(163, 163, 163);
+}
+
+
+/* CONTACT -------------------------------------------------------------------------------------------------------------------------*/
+
+#contact {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 75vh;
+}
+
+.contact-info-upper-container {
+    display: flex;
+    justify-content: center;
+    border-radius: 2rem;
+    border: rgb(53, 53, 53) 0.1rem solid;
+    border-color: rgb(163, 163, 163);
+    background: (250, 250, 250);
+    margin: 2rem auto;
+    padding: 0.5rem;
+    backdrop-filter: blur(5px);
+}
+
+.contact-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem;
+}
+
+.contact-info-container p {
+    font-size: larger;
+}
+
+.contact-icon {
+    cursor: default;
+}
+
+.email-icon {
+    height: 2.5rem;
+}
+
+
+/* FOOTER SECTION------------------------------------------------------------------- */
+
+footer {
+    height: 26vh;
+    margin: 0 1rem;
+}
+
+footer p {
+    text-align: center;
+}
+
+
+/* ZOOM EFFECT FOR CONTAINERS _____________________________________________________________________*/
+
+.details-container {
+    backdrop-filter: blur(5%);
+}
+
+.details-container,
+.color-container,
+.contact-info-upper-container {
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    /* Smooth transition */
+}
+
+.details-container:hover,
+.color-container:hover,
+.contact-info-upper-container:hover {
+    transform: scale(1.05);
+    /* Zoom in slightly */
+}
+
+.details-container>* {
+    box-shadow: none;
+}
+
+.color-container>* {
+    box-shadow: none;
+}
+
+.article-container>* {
+    box-shadow: none;
+}
+
+.contact-info-upper-container>* {
+    box-shadow: none;
+}
+
+.details-container,
+.color-container,
+.article-container,
+.contact-info-upper-container {
+    transition: transform 0.4s ease, backdrop-filter 0.4s ease;
+    /* Smooth transition */
+}
+
+.details-container:hover,
+.color-container:hover,
+.contact-info-upper-container:hover {
+    transform: scale(1.05);
+    /* Zoom in slightly */
+    backdrop-filter: blur(10px);
+    /* Apply a blur effect */
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari support */
+}
