@@ -10,8 +10,6 @@ window.addEventListener('load', function() {
 });
 
 
-
-
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
 
