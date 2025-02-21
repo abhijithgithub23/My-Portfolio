@@ -747,3 +747,137 @@ footer p {
     -webkit-backdrop-filter: blur(10px);
     /* Safari support */
 }
+
+
+/*--------------------------------------------------------------------------NEW PROJECT CONTAINER----------------*/
+
+.projects-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.projects-wrapper {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.projects-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Glassmorphism Effect */
+
+.project-card {
+    flex: 0 0 auto;
+    width: 300px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Ensure uniform height for proper button alignment */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+    /* Adjust this as needed */
+}
+
+.project-img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+
+/* Ensure buttons stay at the bottom */
+
+.btn-container {
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.scroll-btn {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.scroll-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.left-btn {
+    left: -40px;
+}
+
+.right-btn {
+    right: -40px;
+}
+
+@media (max-width: 768px) {
+    .projects-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .scroll-btn {
+        display: none;
+    }
+    .projects-wrapper {
+        justify-content: center;
+        overflow-x: scroll;
+    }
+    .project-card {
+        width: 90%;
+        min-height: 400px;
+    }
+}
+
+.project-card {
+    flex: 0 0 auto;
+    width: 300px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Ensure uniform height for proper button alignment */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+    /* Adjust this as needed */
+    /* Add smooth transition for hover effect */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+
+/* Hover Effect: Slightly scale up & add a subtle shadow */
+
+.project-card:hover {
+    transform: scale(1.02);
+    /* Slightly enlarge the container */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    /* Increase shadow for depth */
+}

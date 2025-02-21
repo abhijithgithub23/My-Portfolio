@@ -160,3 +160,23 @@
         }
     }
 }
+
+@media screen and (max-width: 600px) {
+    /* Ensuring projects stack vertically */
+    .projects-wrapper {
+        flex-direction: column;
+        align-items: center;
+        overflow: visible;
+        /* No scrolling */
+    }
+    .project-card {
+        width: 90%;
+        /* Make it responsive */
+        margin-bottom: 20px;
+        /* Space between projects */
+    }
+    /* Hide scroll buttons on mobile */
+    .scroll-btn {
+        display: none;
+    }
+}

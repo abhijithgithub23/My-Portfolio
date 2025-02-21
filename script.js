@@ -50,3 +50,63 @@ document.querySelector('.nav-button').addEventListener('click', function(event) 
     event.preventDefault();
     // Your navigation logic here
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    function getElementData(element) {
+        if (!element) {
+            console.warn("No element selected.");
+            return null;
+        }
+
+        const parent = element.parentElement;
+        if (!parent) {
+            console.warn("Element has no parent.");
+            return null;
+        }
+
+        const elementComputedStyle = window.getComputedStyle(element);
+        const parentComputedStyle = window.getComputedStyle(parent);
+
+        const data = {
+            element: {
+                display: elementComputedStyle.display,
+                position: elementComputedStyle.position,
+                width: elementComputedStyle.width,
+                height: elementComputedStyle.height,
+                marginLeft: elementComputedStyle.marginLeft,
+                marginRight: elementComputedStyle.marginRight,
+                marginTop: elementComputedStyle.marginTop,
+                marginBottom: elementComputedStyle.marginBottom,
+                boxSizing: elementComputedStyle.boxSizing,
+                childrenCount: element.children.length,
+            },
+            parent: {
+                display: parentComputedStyle.display,
+                position: parentComputedStyle.position,
+                width: parentComputedStyle.width,
+                height: parentComputedStyle.height,
+                paddingLeft: parentComputedStyle.paddingLeft,
+                paddingRight: parentComputedStyle.paddingRight,
+                paddingTop: parentComputedStyle.paddingTop,
+                paddingBottom: parentComputedStyle.paddingBottom,
+                childrenCount: parent.children.length,
+            },
+        };
+
+        console.log("Element and Parent Data:", data);
+        return data;
+    }
+
+    // Example usage: Select an element manually
+    const element = document.querySelector(".your-class"); // Replace with your element selector
+    getElementData(element);
+});
+
+
+
+function scrollProjects(direction) {
+    const container = document.querySelector(".projects-wrapper");
+    const scrollAmount = 320; // Adjust this value based on project card width
+    container.scrollBy({ left: direction * scrollAmount, behavior: "smooth" });
+}
