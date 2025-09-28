@@ -45,10 +45,12 @@
                 <span></span>
             </div>
             <div class="menu-links">
-                <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+                <ul>
+                    <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                    <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+                    <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+                    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+                </ul>    
             </div>
         </div>
     </nav>
@@ -100,9 +102,18 @@
                         <p>Class X (CBSE)<br />2019</p>
                     </div>
                 </div>
-                <div class="text-container">
-                    <p>
-                        Scroll down to explore my experiences and completed projects.
+                <div class="text-container details-container">
+                    <p >
+                        BE CSE Graduate | MERN Stack Developer | C++ & DSA Enthusiast | Software Developer | Web Security & Testing | Tech Explorer
+                    </p>
+                    <br>
+                    <!-- <p style="text-align: justify;">
+                        I am a Computer Science Engineering graduate from Sahyadri College of Engineering and Management.
+                    </p> -->
+                    
+                    <p style="text-align: justify; margin-right:1rem;">
+                                                I am a Computer Science Engineering graduate from Sahyadri College of Engineering and Management.
+I have technical skills in C++, C, JavaScript, SQL, HTML, CSS, and Bash, with experience in frameworks like React.js, Node.js, Express.js, Bootstrap, and Tailwind. I work with MongoDB and MySQL, and am proficient with tools such as Git, VS Code, Postman, Burp Suite, Nmap, and Wireshark. Comfortable in Linux and macOS, I understand client-server architecture, RESTful APIs, responsive design, and software design principles.
                     </p>
                 </div>
             </div>
@@ -117,7 +128,7 @@
         <p class="section__text__p1">Explore My</p>
         <h1 class="title">Experience</h1>
         <div class="experience-details-container">
-            <div class="about-containers">
+            <div class="about-containers experience-containers">
                 <div class="details-container">
                     <h2 class="experience-sub-title">Languages</h2>
                     <div class="article-container">
@@ -149,14 +160,14 @@
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
-                                <h3>Java</h3>
+                                <h3>SQL</h3>
                             </div>
                         </article>
 
                     </div>
                 </div>
                 <div class="details-container">
-                    <h2 class="experience-sub-title">Developer Tools</h2>
+                    <h2 class="experience-sub-title">Developer Tools & Platforms</h2>
                     <div class="article-container">
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
@@ -164,44 +175,70 @@
                                 <h3>VisualStudio Code</h3>
                             </div>
                         </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                            <div>
-                                <h3>Burp Suite</h3>
-                            </div>
-                        </article>
+                        
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
                                 <h3>Git</h3>
                             </div>
                         </article>
+
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
-                                <h3>Eclipse</h3>
+                                <h3>Burp Suite</h3>
                             </div>
                         </article>
+
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                            <div>
+                                <h3>Wireshark</h3>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                            <div>
+                                <h3>Node.js</h3>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                            <div>
+                                <h3>Linux</h3>
+                            </div>
+                        </article>
+                        
                     </div>
                 </div>
                 <div class="details-container">
-                    <h2 class="experience-sub-title">Frameworks</h2>
+                    <h2 class="experience-sub-title">Frameworks & Libraries</h2>
                     <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                            <div>
-                                <h3>Metasploit</h3>
-                            </div>
-                        </article>
+                        
                         <article>
                             <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
                             <div>
                                 <h3>React.js</h3>
                             </div>
                         </article>
-
-
-
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                            <div>
+                                <h3>Express.js</h3>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                            <div>
+                                <h3>Bootstrap</h3>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                            <div>
+                                <h3>Tailwind</h3>
+                            </div>
+                        </article>
                     </div>
                 </div>
                 <div class="details-container">
@@ -233,13 +270,28 @@
         <div class="projects-container">
             <button class="scroll-btn left-btn" onclick="scrollProjects(-1)">&#10094;</button>
             <div class="projects-wrapper">
+
+                <div class="project-card">
+                    <div class="article-container">
+                        <img src="./assets/fullstack.png" alt="Project 3" class="project-img fullStackImg" />
+                    </div>
+                    <h2 class="experience-sub-title project-title">Airbnb Clone - Full Stack Web Application-MVC</h2>
+                    <div class="btn-container">
+                        <button class="btn btn-color-2 project-btn" onclick="window.open('https://github.com/abhijithgithub23/my-airbnb-clone')">
+                            Github
+                        </button>
+                        <button class="btn btn-color-2 project-btn" onclick="window.open('https://my-airbnb-clone-8989.onrender.com/listings')">
+                            Web App Link
+                        </button>
+                    </div>
+                </div>
                 <div class="project-card">
                     <div class="article-container">
                         <img src="./assets/sepsis.png" alt="Project 3" class="project-img" />
                     </div>
                     <h2 class="experience-sub-title project-title">Prediction of Sepsis</h2>
                     <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="window.open('https:', '_blank')">
+                        <button class="btn btn-color-2 project-btn" onclick="window.open('https://github.com/abhijithgithub23/Sepsis-prediction-machine')">
                             Github
                         </button>
                         <button class="btn btn-color-2 project-btn" onclick="window.open('./assets/PredictionOfSepsis.pdf')">
@@ -247,6 +299,7 @@
                         </button>
                     </div>
                 </div>
+
                 <div class="project-card">
                     <div class="article-container">
                         <img src="./assets/rubberducky.png" alt="Project 3" class="project-img" />
@@ -296,6 +349,12 @@
             </div>
             <button class="scroll-btn right-btn" onclick="scrollProjects(1)">&#10095;</button>
         </div>
+        <br>
+        <p id="pTagProject" style="text-align: center; color:rgb(46, 46, 46)">
+            Slide to see more projects &rarr;
+        </p>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
+        <img src="./assets/arrowup.png" alt="Arrowup iconup" class="iconup arrowup" onclick="location.href='./#experience'" />
     </section>
 
     <section id="contact">
