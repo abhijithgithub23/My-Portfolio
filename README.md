@@ -15,7 +15,7 @@ This is my personal portfolio website showcasing my projects, skills, and contac
 
 ##  Technologies Used
 - HTML5  
-- CSS3 / Tailwind / Bootstrap *(use whichever you used)*  
+- CSS3 
 - JavaScript
   
 ---
