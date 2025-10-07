@@ -405,9 +405,10 @@ section {
   background: rgba(255, 255, 255, 0.2);
   /* Semi-transparent background */
   border: rgb(53, 53, 53) 0.1rem solid;
-  backdrop-filter: blur(10px);
+
   /* Apply a blur effect */
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   /* For Safari support */
   color: rgb(53, 53, 53);
   /* Text color to match the border */
@@ -753,6 +754,8 @@ footer p {
   width: 100%;
   max-width: 1200px;
   margin: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .projects-wrapper {
@@ -763,6 +766,8 @@ footer p {
   padding: 10px;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .projects-wrapper::-webkit-scrollbar {
@@ -871,4 +876,8 @@ footer p {
   /* Slightly enlarge the container */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   /* Increase shadow for depth */
+}
+
+.project-card-description {
+  color: rgb(85, 85, 85);
 }
