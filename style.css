@@ -458,7 +458,7 @@ section {
 
 #about {
   position: relative;
-  background-image: url("/assets/bg3.jpg");
+  background-image: url("./assets/bg3.jpg");
   background-size: 70% 100%;
   background-position: right;
   background-repeat: no-repeat;
@@ -543,7 +543,7 @@ section {
 
 #experience {
   position: relative;
-  background-image: url("/assets/bg4.jpg");
+  background-image: url("./assets/bg4.jpg");
   /* Replace with your actual image path */
   background-size: 50% 100%;
   /* Scale the image to twice its width and full height */
@@ -597,7 +597,7 @@ article .icon {
 
 #projects {
   position: relative;
-  background-image: url("/assets/bg5.jpg");
+  background-image: url("./assets/bg5.jpg");
   /* Replace with your actual image path */
   background-size: 50% 100%;
   /* Scale the image to twice its width and full height */
