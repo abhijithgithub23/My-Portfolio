@@ -1,0 +1,756 @@
+/* =========================================
+   GENERAL & RESETS
+   ========================================= */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Added for better layout consistency, implies standard reset behavior */
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  cursor: url("./assets/mac20.png"), auto;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  color: rgb(85, 85, 85);
+}
+
+a {
+  position: relative;
+  color: black;
+  text-decoration: none;
+  transition: all 300ms ease;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(181, 181, 181);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+a:hover {
+  color: gray;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* =========================================
+   COMPONENTS: BUTTONS & ICONS
+   ========================================= */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  font-weight: 600;
+  transition: all 300ms ease;
+  padding: 1rem;
+  width: 8rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.btn-color-1 {
+  border: rgb(53, 53, 53) 0.1rem solid;
+}
+
+.btn-color-1:hover {
+  background: rgb(0, 0, 0);
+  color: white;
+}
+
+.btn-color-2 {
+  background: none;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  color: rgb(53, 53, 53);
+  /* Blur effects kept from original definitions */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.btn-color-2:hover {
+  border: rgb(255, 255, 255) 0.1rem solid;
+  background: rgb(53, 53, 53);
+  color: white;
+}
+
+.icon {
+  cursor: pointer;
+  height: 2rem;
+}
+
+.icon1 {
+  cursor: pointer;
+  height: 3rem;
+  width: 3rem;
+  transition: transform 0.3s ease;
+}
+
+.icon1:hover {
+  transform: scale(1.1);
+}
+
+.icond,
+.iconup {
+  cursor: pointer;
+  height: 2rem;
+}
+
+/* =========================================
+   NAVIGATION (DESKTOP)
+   ========================================= */
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 17vh;
+  width: 100%;
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.5rem;
+}
+
+.logo {
+  font-size: 2rem;
+  cursor: default;
+}
+
+/* =========================================
+   NAVIGATION (HAMBURGER)
+   ========================================= */
+#hamburger-nav {
+  display: none;
+}
+
+.hamburger-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.hamburger-icon span {
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transition: all 0.3s ease-in-out;
+  transform: none;
+  opacity: 1;
+}
+
+.menu-links {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(2px);
+  width: fit-content;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+  border-radius: 1rem;
+}
+
+.menu-links.open {
+  max-height: 400px;
+}
+
+.menu-links ul {
+  list-style: none;
+}
+
+.menu-links a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: black;
+  text-decoration: none;
+  transition: none;
+}
+
+.menu-links a:hover {
+  background-color: transparent;
+  color: black;
+  text-decoration: none;
+}
+
+/* Hamburger Animation States */
+.hamburger-icon.open span:first-child {
+  transform: rotate(45deg) translate(10px, 5px);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.open span:last-child {
+  transform: rotate(-45deg) translate(10px, -5px);
+}
+
+/* =========================================
+   CONTEXT MENU
+   ========================================= */
+.context-menu {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  width: 150px;
+  background-color: white;
+  border: 1px solid rgba(220, 220, 220, 0.6);
+  backdrop-filter: blur(50px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+}
+
+.context-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.context-menu li {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(220, 220, 220, 0.6);
+}
+
+.context-menu li:hover {
+  background-color: rgba(224, 224, 224, 0.5);
+}
+
+.context-menu li:last-child {
+  border-bottom: none;
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+.unlock-animation {
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: slideIn 1s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =========================================
+   SECTIONS: GENERAL LAYOUT
+   ========================================= */
+section {
+  padding-top: 4vh;
+  height: 96vh;
+  margin: 0 10rem;
+  box-sizing: border-box;
+  min-height: fit-content;
+}
+
+.section-container {
+  display: flex;
+  gap: 4rem;
+  height: 80%;
+}
+
+.section__pic-container {
+  display: flex;
+  height: 400px;
+  width: 400px;
+  margin: auto 0;
+}
+
+.section__text {
+  align-self: center;
+  text-align: center;
+  color: rgb(50, 50, 50);
+}
+
+.section__text p {
+  font-weight: 600;
+}
+
+.section__text__p1 {
+  text-align: center;
+}
+
+.section__text__p11 {
+  text-align: left;
+}
+
+.section__text__p2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.section__text__p22 {
+  text-align: right;
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.title11 {
+  font-size: 3rem;
+  text-align: left;
+}
+
+.title22 {
+  font-size: 3rem;
+  text-align: right;
+}
+
+/* =========================================
+   SECTION: PROFILE
+   ========================================= */
+#profile {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  height: 83vh;
+  filter: grayscale(100%);
+  background-image: url("./assets/bgpic.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 50px 0;
+  color: white;
+}
+
+#profile .section__pic-container {
+  filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+}
+
+#socials-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+/* =========================================
+   SECTION: ABOUT
+   ========================================= */
+#about {
+  position: relative;
+  background-image: url("./assets/bg3.jpg");
+  background-size: 70% 100%;
+  background-position: right;
+  background-repeat: no-repeat;
+  height: 100vh;
+  border-bottom-right-radius: 40px;
+}
+
+.about-containers,
+.about-details-container {
+  display: flex;
+}
+
+.about-containers {
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 4rem;
+  margin-right: 1rem;
+}
+
+.about-details-container {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.about-pic {
+  border-radius: 2rem;
+  filter: grayscale(99%);
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
+}
+
+.about-pic:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.arrow {
+  position: absolute;
+  right: -5rem;
+  bottom: 2.5rem;
+}
+
+.arrowup {
+  position: absolute;
+  right: -5rem;
+  top: 2.5rem;
+}
+
+.details-container {
+  padding: 1.5rem;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(2px);
+  border-radius: 2rem;
+  border: 0.1rem solid rgb(163, 163, 163);
+  text-align: center;
+}
+
+.text-container {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* =========================================
+   SECTION: EXPERIENCE
+   ========================================= */
+#experience {
+  position: relative;
+  background-image: url("./assets/bg4.jpg");
+  background-size: 50% 100%;
+  background-position: left;
+  background-repeat: no-repeat;
+  border-bottom-left-radius: 40px;
+  border-top-left-radius: 40px;
+  height: 100vh !important;
+}
+
+.experience-containers {
+  margin-left: 1rem;
+}
+
+.experience-sub-title {
+  color: rgb(85, 85, 85);
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.experience-details-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.article-container {
+  display: flex;
+  text-align: initial;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 2.5rem;
+  justify-content: last baseline;
+}
+
+article {
+  display: flex;
+  width: 10rem;
+  justify-content: last baseline;
+  gap: 0.5rem;
+}
+
+article .icon {
+  cursor: default;
+}
+
+/* =========================================
+   SECTION: PROJECTS
+   ========================================= */
+
+/* PROJECTS SECTION ---------------------------------------------------------------- */
+
+#projects {
+  position: relative;
+  background-image: url("./assets/bg5.jpg");
+  background-size: 50% 100%;
+  background-position: right;
+  background-repeat: no-repeat;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  /* CHANGED: Allow section to grow vertically to fit rows of cards */
+  height: fit-content;
+  min-height: 100vh;
+  padding-bottom: 4rem;
+}
+
+.color-container {
+  border-color: rgb(163, 163, 163);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.project-img {
+  border-radius: 2rem;
+  width: 100%;
+  height: 90%;
+}
+
+.projects-container .project-img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.project-title {
+  margin: 1rem;
+  color: rgb(54, 54, 54);
+}
+
+.project-btn {
+  color: black;
+  border-color: rgb(163, 163, 163);
+}
+
+.project-card-description {
+  color: rgb(85, 85, 85);
+}
+
+/* NEW PROJECT CONTAINER STYLES ------------------------------------ */
+
+.projects-container {
+  position: relative;
+  display: flex;
+  justify-content: center; /* Center the grid */
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.projects-wrapper {
+  display: flex;
+  /* CHANGED: Allow items to wrap to the next line */
+  flex-wrap: wrap;
+  /* CHANGED: Center items to create a neat grid */
+  justify-content: center;
+  gap: 30px; /* Space between cards */
+  padding: 10px;
+  width: 100%;
+}
+
+/* Hide the scrollbar since we are not scrolling anymore */
+.projects-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Glassmorphism Card */
+.project-card {
+  flex: 0 0 auto;
+  width: 300px;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 400px;
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  margin-bottom: 20px; /* Add spacing below cards for the new row */
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.project-card .btn-container {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+/* CHANGED: Hide the scroll buttons (arrows) as they are not needed in a grid */
+.scroll-btn {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+  /* On medium screens, it will naturally drop to 2 cards per row due to flex-wrap */
+  .projects-wrapper {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .projects-wrapper {
+    justify-content: center;
+  }
+
+  .project-card {
+    width: 90%; /* On mobile, full width */
+    min-height: 400px;
+  }
+}
+
+/* =========================================
+   SECTION: CONTACT
+   ========================================= */
+#contact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 75vh;
+}
+
+.contact-info-upper-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 2rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  /* background property removed as it contained invalid syntax (250, 250, 250) */
+  margin: 2rem auto;
+  padding: 0.5rem;
+  backdrop-filter: blur(5px);
+}
+
+.contact-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.contact-info-container p {
+  font-size: larger;
+}
+
+.contact-icon {
+  cursor: default;
+}
+
+.email-icon {
+  height: 2.5rem;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+  height: 26vh;
+  margin: 0 1rem;
+}
+
+footer p {
+  text-align: center;
+}
+
+/* =========================================
+   EFFECTS: ZOOM & SHADOWS
+   ========================================= */
+.details-container {
+  backdrop-filter: blur(5%);
+}
+
+.details-container,
+.color-container,
+.contact-info-upper-container,
+.article-container {
+  transition:
+    transform 0.4s ease,
+    backdrop-filter 0.4s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.details-container:hover,
+.color-container:hover,
+.contact-info-upper-container:hover {
+  transform: scale(1.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Remove shadows from children to prevent stacking artifacts */
+.details-container > *,
+.color-container > *,
+.article-container > *,
+.contact-info-upper-container > * {
+  box-shadow: none;
+}
+
+/* =========================================
+   MEDIA QUERIES
+   ========================================= */
+@media (max-width: 768px) {
+  .projects-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .scroll-btn {
+    display: none;
+  }
+
+  .projects-wrapper {
+    justify-content: center;
+    overflow-x: scroll;
+  }
+
+  .project-card {
+    width: 90%;
+    min-height: 400px;
+  }
+}
